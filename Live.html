@@ -1,0 +1,43 @@
+{
+  "type": "script",
+  "seleniumVersion": "2",
+  "formatVersion": 2,
+  "steps": [
+    {
+      "type": "get",
+      "url": "https://live.bkfonbet.com/?locale=ru"
+    },
+    {
+      "type": "assertTitle",
+      "title": "Fonbet Live"
+    },
+    {
+      "type": "deleteCookie",
+      "name": "fb_campaign"
+    },
+    {
+      "type": "assertCookiePresent",
+      "negated": true,
+      "name": "fb_campaign"
+    },
+    {
+      "type": "get",
+      "url": "https://live.bkfonbet.com/?locale=ru&fb_campaign=44"
+    },
+    {
+      "type": "assertTitle",
+      "title": "Fonbet Live"
+    },
+    {
+      "type": "assertCookieByName",
+      "name": "fb_campaign",
+      "value": "44"
+    }
+  ],
+  "data": {
+    "configs": {},
+    "source": "none"
+  },
+  "inputs": [],
+  "timeoutSeconds": 60
+}

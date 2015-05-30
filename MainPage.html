@@ -1,0 +1,49 @@
+{
+  "type": "script",
+  "seleniumVersion": "2",
+  "formatVersion": 2,
+  "steps": [
+    {
+      "type": "get",
+      "url": "http://www.bkfonbet.com/su/"
+    },
+    {
+      "type": "waitForElementPresent",
+      "locator": {
+        "type": "css selector",
+        "value": "div.dcCarousel"
+      }
+    },
+    {
+      "type": "deleteCookie",
+      "name": "fb_campaign"
+    },
+    {
+      "type": "assertCookiePresent",
+      "negated": true,
+      "name": "fb_campaign"
+    },
+    {
+      "type": "get",
+      "url": "http://www.bkfonbet.com/ru/?fb_campaign=46"
+    },
+    {
+      "type": "waitForElementPresent",
+      "locator": {
+        "type": "css selector",
+        "value": "div.dcCarousel"
+      }
+    },
+    {
+      "type": "assertCookieByName",
+      "name": "fb_campaign",
+      "value": "46"
+    }
+  ],
+  "data": {
+    "configs": {},
+    "source": "none"
+  },
+  "inputs": [],
+  "timeoutSeconds": 60
+}

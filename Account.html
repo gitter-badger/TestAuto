@@ -1,0 +1,49 @@
+{
+  "type": "script",
+  "seleniumVersion": "2",
+  "formatVersion": 2,
+  "steps": [
+    {
+      "type": "get",
+      "url": "https://account.bkfonbet.com/MyAccount/faces/login.xhtml/?locale=ru"
+    },
+    {
+      "type": "waitForElementPresent",
+      "locator": {
+        "type": "css selector",
+        "value": "table.loginForm"
+      }
+    },
+    {
+      "type": "deleteCookie",
+      "name": "fb_campaign"
+    },
+    {
+      "type": "assertCookiePresent",
+      "negated": true,
+      "name": "fb_campaign"
+    },
+    {
+      "type": "get",
+      "url": "https://account.bkfonbet.com/MyAccount/faces/login.xhtml/?locale=ru&fb_campaign=49"
+    },
+    {
+      "type": "waitForElementPresent",
+      "locator": {
+        "type": "css selector",
+        "value": "table.loginForm"
+      }
+    },
+    {
+      "type": "assertCookieByName",
+      "name": "fb_campaign",
+      "value": "56"
+    }
+  ],
+  "data": {
+    "configs": {},
+    "source": "none"
+  },
+  "inputs": [],
+  "timeoutSeconds": 60
+}

@@ -1,0 +1,51 @@
+{
+  "type": "script",
+  "seleniumVersion": "2",
+  "formatVersion": 2,
+  "steps": [
+    {
+      "type": "get",
+      "url": "http://www.bkfonbet.com/ru/rules/telefonnyj-servis"
+    },
+    {
+      "type": "waitForText",
+      "locator": {
+        "type": "css selector",
+        "value": "h1.title"
+      },
+      "text": "Телефонный сервис: 8-800-500-77-00"
+    },
+    {
+      "type": "deleteCookie",
+      "name": "fb_campaign"
+    },
+    {
+      "type": "assertCookiePresent",
+      "negated": true,
+      "name": "fb_campaign"
+    },
+    {
+      "type": "get",
+      "url": "http://www.bkfonbet.com/ru/rules/telefonnyj-servis/?fb_campaign=45"
+    },
+    {
+      "type": "waitForText",
+      "locator": {
+        "type": "css selector",
+        "value": "h1.title"
+      },
+      "text": "Телефонный сервис: 8-800-500-77-00"
+    },
+    {
+      "type": "assertCookieByName",
+      "name": "fb_campaign",
+      "value": "45"
+    }
+  ],
+  "data": {
+    "configs": {},
+    "source": "none"
+  },
+  "inputs": [],
+  "timeoutSeconds": 60
+}

@@ -1,0 +1,43 @@
+{
+  "type": "script",
+  "seleniumVersion": "2",
+  "formatVersion": 2,
+  "steps": [
+    {
+      "type": "get",
+      "url": "http://www.fonbet.com/ru/faq/"
+    },
+    {
+      "type": "assertTextPresent",
+      "text": "Часто возникающие вопросы"
+    },
+    {
+      "type": "deleteCookie",
+      "name": "fb_campaign"
+    },
+    {
+      "type": "assertCookiePresent",
+      "negated": true,
+      "name": "fb_campaign"
+    },
+    {
+      "type": "get",
+      "url": "http://www.fonbet.com/ru/faq//?fb_campaign=43"
+    },
+    {
+      "type": "assertTextPresent",
+      "text": "Часто возникающие вопросы"
+    },
+    {
+      "type": "assertCookieByName",
+      "name": "fb_campaign",
+      "value": "43"
+    }
+  ],
+  "data": {
+    "configs": {},
+    "source": "none"
+  },
+  "inputs": [],
+  "timeoutSeconds": 60
+}

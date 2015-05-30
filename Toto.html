@@ -1,0 +1,49 @@
+{
+  "type": "script",
+  "seleniumVersion": "2",
+  "formatVersion": 2,
+  "steps": [
+    {
+      "type": "get",
+      "url": "https://toto.bkfonbet.com/?locale=ru"
+    },
+    {
+      "type": "waitForElementPresent",
+      "locator": {
+        "type": "id",
+        "value": "toto_content"
+      }
+    },
+    {
+      "type": "deleteCookie",
+      "name": "fb_campaign"
+    },
+{
+      "type": "assertCookiePresent",
+      "negated": true,
+      "name": "fb_campaign"
+    },
+    {
+      "type": "get",
+      "url": "https://toto.bkfonbet.com/?locale=ru&fb_campaign=51"
+    },
+    {
+      "type": "waitForElementPresent",
+      "locator": {
+        "type": "id",
+        "value": "toto_content"
+      }
+    },
+    {
+      "type": "assertCookieByName",
+      "name": "fb_campaign",
+      "value": "51"
+    }
+  ],
+  "data": {
+    "configs": {},
+    "source": "none"
+  },
+  "inputs": [],
+  "timeoutSeconds": 60
+}

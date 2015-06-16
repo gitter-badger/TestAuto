@@ -1,0 +1,43 @@
+{
+  "type": "script",
+  "seleniumVersion": "2",
+  "formatVersion": 2,
+  "steps": [
+    {
+      "type": "get",
+      "url": "https://fivelevel.bkfonbet.com/Fivelevel/?locale=ru"
+    },
+    {
+      "type": "assertTitle",
+      "title": "Финансовые ставки - Fonbet"
+    },
+    {
+      "type": "deleteCookie",
+      "name": "fb_campaign"
+    },
+    {
+      "type": "assertCookiePresent",
+      "negated": true,
+      "name": "fb_campaign"
+    },
+    {
+      "type": "get",
+      "url": "https://fivelevel.bkfonbet.com/Fivelevel/?locale=ru/?fb_campaign=35"
+    },
+    {
+      "type": "assertTitle",
+      "title": "Финансовые ставки - Fonbet"
+    },
+    {
+      "type": "assertCookieByName",
+      "name": "fb_campaign",
+      "value": "35"
+    }
+  ],
+  "data": {
+    "configs": {},
+    "source": "none"
+  },
+  "inputs": [],
+  "timeoutSeconds": 60
+}

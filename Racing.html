@@ -1,0 +1,43 @@
+{
+  "type": "script",
+  "seleniumVersion": "2",
+  "formatVersion": 2,
+  "steps": [
+    {
+      "type": "get",
+      "url": "https://racing.bkfonbet.com/ru/racing/"
+    },
+    {
+      "type": "assertTitle",
+      "title": "Прием ставок на скачки :: Букмекерская контора Фонбет"
+    },
+    {
+      "type": "deleteCookie",
+      "name": "fb_campaign"
+    },
+    {
+      "type": "assertCookiePresent",
+      "negated": true,
+      "name": "fb_campaign"
+    },
+    {
+      "type": "get",
+      "url": "https://racing.bkfonbet.com/ru/racing/?fb_campaign=13"
+    },
+    {
+      "type": "assertTitle",
+      "title": "Прием ставок на скачки :: Букмекерская контора Фонбет"
+    },
+    {
+      "type": "assertCookieByName",
+      "name": "fb_campaign",
+      "value": "13"
+    }
+  ],
+  "data": {
+    "configs": {},
+    "source": "none"
+  },
+  "inputs": [],
+  "timeoutSeconds": 60
+}

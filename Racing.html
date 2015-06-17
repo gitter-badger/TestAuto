@@ -8,8 +8,11 @@
       "url": "https://racing.bkfonbet.com/ru/racing/"
     },
     {
-      "type": "assertTitle",
-      "title": "Прием ставок на скачки :: Букмекерская контора Фонбет"
+      "type": "assertElementPresent",
+      "locator": {
+        "type": "css selector",
+        "value": "div.howto_bet_title"
+      }
     },
     {
       "type": "deleteCookie",
@@ -25,8 +28,11 @@
       "url": "https://racing.bkfonbet.com/ru/racing/?fb_campaign=13"
     },
     {
-      "type": "assertTitle",
-      "title": "Прием ставок на скачки :: Букмекерская контора Фонбет"
+      "type": "assertElementPresent",
+      "locator": {
+        "type": "css selector",
+        "value": "div.howto_bet_title"
+      }
     },
     {
       "type": "assertCookieByName",
